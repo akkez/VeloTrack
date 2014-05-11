@@ -37,7 +37,7 @@ class UserIdentity extends CUserIdentity
 				$this->_id       = $user->getPrimaryKey();
 
 				$user->lastvisit = DateHelper::getCurrentDate();
-				$this->setState('isAdmin', $this->username === 'admin');
+				$this->setState('isAdmin', false);
 				$user->save();
 				Yii::app()->user->setFlash('success', 'Привет, '. CHtml::encode($user->username). "!");
 			}
