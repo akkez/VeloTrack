@@ -54,11 +54,6 @@ return CMap::mergeArray(array(
 					'class'  => 'CFileLogRoute',
 					'levels' => 'error, warning',
 				),
-				array(
-					'class'   => 'CWebLogRoute',
-					'enabled' => 'false',
-					'levels'  => 'trace, info, profile',
-				),
 			),
 		),
 		'clientScript' => array(
