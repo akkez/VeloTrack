@@ -5,6 +5,8 @@ Bicycle path tracker.
 
 Requirements: PHP, MySQL, Yii (1.1.14 or later, must be in `/framework` directory).
 
+This app uses Yandex.Map API and Chart.js library.
+
 Screenshots: 
 
 ![Screenshot 1](/images/screen1.png?raw=true)
