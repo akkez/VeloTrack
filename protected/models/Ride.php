@@ -30,8 +30,7 @@ class Ride extends CActiveRecord
 			array('user_id, created, track', 'required'),
 			array('user_id', 'numerical', 'integerOnly' => true),
 			array('track', 'checkTrack'),
-			array('comment', 'safe', 'on' => 'update'),
-			array('id, user_id, created, comment, track', 'safe', 'on' => 'search'),
+			array('comment', 'safe'),
 		);
 	}
 

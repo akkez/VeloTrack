@@ -43,8 +43,7 @@ class StatsController extends Controller
 		return $ride->length;
 	}
 
-	public
-	function actionIndex($interval = 'day')
+	public function actionIndex($interval = 'day')
 	{
 		$intervals = array('day', 'week', 'month');
 		if (!in_array($interval, $intervals))
