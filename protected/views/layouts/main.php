@@ -16,6 +16,7 @@ else
 	<meta name="language" content="en"/>
 
 	<link rel="stylesheet" type="text/css" href="/css/styles.css"/>
+	<link rel="icon" href="favicon.ico" type="image/x-icon">
 
 	<title><?php echo $title; ?></title>
 
