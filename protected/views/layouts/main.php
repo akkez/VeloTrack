@@ -98,7 +98,7 @@ else
 	<div class="container">
 		<div class="span4" style="padding-top: 10px">&copy; 2014<br/>
 			Работает на Yii и чьей-то матери <br/></div>
-		<div class="span4" style="padding-top: 20px"><a href="#">Форкни плиз</a></div>
+		<div class="span4" style="padding-top: 20px"><a href="https://github.com/akkez/VeloTrack" target="_blank">Форкни плиз</a></div>
 	</div>
 </div>
 <!-- footer -->
