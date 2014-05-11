@@ -32,16 +32,35 @@ class StatsController extends Controller
 		);
 	}
 
-	public function actionIndex()
+	public function getLengthOfAllRides($userId)
 	{
-		$sum    = Ride::model()->find(
-			array(
-				'condition' => 't.user_id = :uid', 'select' => 'SUM(t.length) as length',
-				'params'    => array(':uid' => Yii::app()->user->getId())
-			)
-		);
-		$length = $sum->length;
+		$criteria         = new CDbCriteria();
+		$criteria->params = array(':uid' => $userId);
+		$criteria->addCondition('t.user_id = :uid');
+		$criteria->select = 'SUM(t.length) as length';
+		$ride             = Ride::model()->find($criteria);
 
-		$this->render('index', array('length' => $length));
+		return $ride->length;
+	}
+
+	public
+	function actionIndex($interval = 'day')
+	{
+		$intervals = array('day', 'week', 'month');
+		if (!in_array($interval, $intervals))
+		{
+			$interval = $intervals[0];
+		}
+
+		$criteria         = new CDbCriteria();
+		$criteria->params = array(':uid' => Yii::app()->user->getId());
+		$criteria->addCondition('t.user_id = :uid');
+		$criteria->select = "SUM(t.length) as length, t.created";
+		$criteria->group  = "DAY(t.created)";
+
+		$dataProvider = new CActiveDataProvider('Ride', array('criteria' => $criteria));
+
+		$length = $this->getLengthOfAllRides(Yii::app()->user->getId());
+		$this->render('index', array('interval' => $interval, 'length' => $length, 'dataProvider' => $dataProvider));
 	}
 }
