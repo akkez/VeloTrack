@@ -1,0 +1,5 @@
+/.idea
+/assets
+/framework
+/protected/runtime
+/protected/config/sensitiveData.php
