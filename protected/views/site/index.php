@@ -17,8 +17,10 @@ echo HeaderHelper::page('VeloTrack');
 	'type'  => 'primary',
 	'size'  => 'large',
 
-)); ?>
+));
 
-<p>*скриншотики*</p>
-<p>*скриншотики*</p>
-<p>*скриншотики*</p>
+?><p>&nbsp;</p>	<h3>Что внутри:</h3><?php
+
+echo CHtml::tag('p', array(), CHtml::image('/images/screen1.png'));
+echo CHtml::tag('p', array(), CHtml::image('/images/screen2.png'));
+echo CHtml::tag('p', array(), CHtml::image('/images/screen3.png'));
