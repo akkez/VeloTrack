@@ -46,7 +46,7 @@ class RideController extends Controller
 		return array(
 			array(
 				'allow',
-				'actions' => array('create', 'update', 'my', 'delete'),
+				'actions' => array('create', 'update', 'my', 'delete', 'csv'),
 				'users'   => array('@'),
 			),
 			array(
@@ -143,6 +143,23 @@ class RideController extends Controller
 		{
 			throw new CHttpException(400, 'Invalid request. Please do not repeat this request again.');
 		}
+	}
+
+	public function actionCsv()
+	{
+		$dataProvider = new CActiveDataProvider('Ride', array(
+			'criteria' => array(
+				'condition' => 'user_id = :uid',
+				'params'    => array(
+					':uid' => Yii::app()->user->getId()
+				)
+			),
+		));
+
+		$this->layout = false;
+		$this->render('csv', array(
+			'dataProvider' => $dataProvider,
+		));
 	}
 
 	/**

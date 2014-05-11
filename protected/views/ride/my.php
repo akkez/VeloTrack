@@ -30,4 +30,4 @@ $this->widget('bootstrap.widgets.TbGridView', array(
 	),
 ));
 
-?><p><a href="/stats/csv">Выгрузить данные (CSV)</a></p>
+?><p><a href="/ride/csv">Выгрузить данные (CSV)</a></p>
