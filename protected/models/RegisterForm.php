@@ -40,8 +40,8 @@ class RegisterForm extends CFormModel
 		$user->email     = $this->email;
 		$user->username  = $this->username;
 		$user->password  = $this->password;
-		$user->created   = new CDbException('NOW()');
-		$user->lastvisit = new CDbException('NOW()');
+		$user->created   = DateHelper::getCurrentDate();
+		$user->lastvisit = DateHelper::getCurrentDate();
 		$user->ip        = $_SERVER['REMOTE_ADDR'];
 		if (!$user->save())
 		{

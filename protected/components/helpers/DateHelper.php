@@ -36,4 +36,9 @@ class DateHelper
 
 		return date("m-Y", $timestamp);
 	}
+
+	public static function getCurrentDate()
+	{
+		return date('Y-m-d H:i:s');
+	}
 }
