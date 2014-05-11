@@ -29,9 +29,42 @@ class Ride extends CActiveRecord
 		return array(
 			array('user_id, created, track', 'required'),
 			array('user_id', 'numerical', 'integerOnly' => true),
+			array('track', 'checkTrack'),
 			array('comment', 'safe', 'on' => 'update'),
 			array('id, user_id, created, comment, track', 'safe', 'on' => 'search'),
 		);
+	}
+
+	public function checkTrack($attribute, $params)
+	{
+		$data = json_decode($this->$attribute);
+		if (!is_array($data))
+		{
+			$this->addError($attribute, 'Track must be array');
+
+			return;
+		}
+		foreach ($data as $element)
+		{
+			if (!is_array($element))
+			{
+				$this->addError($attribute, 'All elements of track must be array');
+
+				return;
+			}
+			if (count($element) != 2)
+			{
+				$this->addError($attribute, 'Size of element must equal to 2');
+
+				return;
+			}
+			if (!is_numeric($element[0]) || !is_numeric($element[1]))
+			{
+				$this->addError($attribute, 'Coordinates must be a number');
+
+				return;
+			}
+		}
 	}
 
 	/**
