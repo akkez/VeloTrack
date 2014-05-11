@@ -31,6 +31,7 @@ class Ride extends CActiveRecord
 			array('user_id', 'numerical', 'integerOnly' => true),
 			array('track', 'checkTrack'),
 			array('comment', 'safe'),
+			array('created', 'date', 'format' => 'yyyy.MM.dd'),
 		);
 	}
 

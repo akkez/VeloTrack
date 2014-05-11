@@ -55,7 +55,7 @@ class StatsController extends Controller
 		$criteria->params = array(':uid' => Yii::app()->user->getId());
 		$criteria->addCondition('t.user_id = :uid');
 		$criteria->select = "SUM(t.length) as length, t.created";
-		$criteria->group  = "DAY(t.created)";
+		$criteria->group  = "DATE(t.created)";
 
 		$dataProvider = new CActiveDataProvider('Ride', array('criteria' => $criteria));
 

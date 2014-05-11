@@ -55,6 +55,7 @@ for ($i = 0; $i < 30; $i++)
 	}
 }
 
+$dataProvider->setPagination(false);
 foreach ($dataProvider->getData() as $record)
 {
 	/* @var $record Ride */
