@@ -17,8 +17,8 @@ $this->widget('bootstrap.widgets.TbGridView', array(
 	'template'     => "{items}{pager}",
 	'columns'      => array(
 		array('name' => 'id', 'header' => '#'),
-		array('name' => 'created', 'value' => 'date("d.m.Y", strtotime($data->created))'),
 		'comment',
+		array('name' => 'created', 'value' => 'date("d.m.Y", strtotime($data->created))'),
 		array('name' => 'length', 'value' => 'GeoHelper::getTitleOfLength($data->length)'),
 		array(
 			'class'         => 'bootstrap.widgets.TbButtonColumn',

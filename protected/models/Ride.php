@@ -85,7 +85,7 @@ class Ride extends CActiveRecord
 		return array(
 			'id'      => 'Номер',
 			'user_id' => 'Юзер',
-			'created' => 'Дата поездки',
+			'created' => 'Дата',
 			'comment' => 'Пометка',
 			'track'   => 'Координаты',
 			'length'  => 'Длина',
